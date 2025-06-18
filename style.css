@@ -96,3 +96,51 @@ button {
     border-radius: 25px;
     cursor: pointer;
 }
+.parallax {
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+}
+.mouse-glow {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+    z-index: 100;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.mouse-glow.active {
+    opacity: 1;
+}
+.dynamic-btn {
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.dynamic-btn:hover {
+  transform: translateY(-3px); /* 悬停上移 */
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+  background: linear-gradient(90deg, #4ecdc4, #ff6b6b); /* 悬停渐变反转 */
+}
+
+.dynamic-btn:active {
+  transform: scale(0.95); /* 点击缩小 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* 触摸元素高亮效果 */
+.touchable {
+    transform: scale(1);
+    transition: transform 0.2s;
+}
+.touchable:active {
+    transform: scale(0.95);
+}
