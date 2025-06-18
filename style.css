@@ -138,13 +138,19 @@ button {
 }
 /* 触摸元素高亮效果 */
 .touchable {
-    transform: scale(var(--touch-scale, 1));
-    transition: transform 0.2s;
-}
-.touchable:active {
-    --touch-scale: 0.95;
+  transform: scale(1);
+  transition: transform 0.3s;
+  pointer-events: auto; /* 确保元素可交互 */
 }
 
+.touchable.active {
+  transform: scale(0.95);
+  transition-duration: 0.15s;
+}
+
+.touchable.locked {
+  pointer-events: none; /* 锁定期间忽略交互 */
+}
 @media (max-width: 600px) {
   #particles-js {
     display: none;
