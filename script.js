@@ -56,3 +56,39 @@ document.addEventListener('mouseup', () => {
   glow.style.width = '50px';
   glow.style.height = '50px';
 });
+
+const touchableElements = document.querySelectorAll('.touchable');
+
+touchableElements.forEach(el => {
+  let isLocked = false;
+  
+  // 触摸/鼠标按下时
+  el.addEventListener('mousedown', startInteraction);
+  el.addEventListener('touchstart', startInteraction);
+  
+  // 触摸/鼠标释放时
+  el.addEventListener('mouseup', endInteraction);
+  el.addEventListener('touchend', endInteraction);
+  el.addEventListener('mouseleave', endInteraction);
+  
+  function startInteraction() {
+    if (isLocked) return;
+    el.classList.add('active');
+  }
+  
+  function endInteraction() {
+    el.classList.remove('active');
+    
+    // 锁定元素直到过渡完成
+    if (!isLocked) {
+      isLocked = true;
+      el.classList.add('locked');
+      
+      // 过渡结束后解锁
+      setTimeout(() => {
+        isLocked = false;
+        el.classList.remove('locked');
+      }, 300); // 与CSS过渡时间一致
+    }
+  }
+});
