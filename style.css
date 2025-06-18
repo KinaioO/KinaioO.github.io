@@ -1,0 +1,86 @@
+/* 手机适配 */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    header {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
+<script>
+    function showMessage() {
+        const name = prompt("你叫什么名字？");
+        if(name) {
+            alert(`欢迎 ${name} 访问我的第一个网页！🎉`);
+        }
+    }
+</script>
+/* 全局样式 */
+body {
+    font-family: '微软雅黑', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f8ff;
+}
+
+/* 页头 */
+header {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border-radius: 10px;
+}
+
+/* 主要内容区 */
+section {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 图片样式 */
+img {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* 列表样式 */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin: 8px 0;
+    color: #555;
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #333;
+    color: white;
+    border-radius: 5px;
+}
+/* 添加动画效果 */
+h1 {
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: all 0.3s;
+}
